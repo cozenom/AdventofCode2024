@@ -2,7 +2,6 @@ from collections import defaultdict
 from tqdm import tqdm
 
 data = open("day09.txt").read().strip()
-
 # data = """2333133121414131402"""
 
 # ----------------------------------------------------------------------------------------------------------------------
