@@ -7,6 +7,7 @@ data = open("day11.txt").read().strip()
 
 data = [int(i) for i in data.split(' ')]
 
+
 # ----------------------------------------------------------------------------------------------------------------------
 # Part 1
 
@@ -22,13 +23,14 @@ def blink(input):
     for stone in input:
         if stone == 0:
             new.append(1)
-        elif len(str(stone))%2 == 0:
-            mid = len(str(stone))//2
+        elif len(str(stone)) % 2 == 0:
+            mid = len(str(stone)) // 2
             new.append(int(str(stone)[:mid]))
             new.append(int(str(stone)[mid:]))
         else:
             new.append(stone * 2024)
     return new
+
 
 stones = data.copy()
 for i in range(25):
@@ -41,7 +43,8 @@ print(len(stones))
 
 
 stones = data.copy()
-stonesdict = {i:1 for i in stones} # lazy
+stonesdict = {i: 1 for i in stones}  # lazy
+
 
 def blink2(stones):
     next = defaultdict(int)
@@ -50,13 +53,14 @@ def blink2(stones):
         if stone == 0:
             next[1] += count
         elif len(str(stone)) % 2 == 1:
-            next[stone*2024] += count
+            next[stone * 2024] += count
         else:
             # even
-            mid = len(str(stone))//2
+            mid = len(str(stone)) // 2
             next[int(str(stone)[:mid])] += count
             next[int(str(stone)[mid:])] += count
     return next
+
 
 for i in range(75):
     stonesdict = blink2(stonesdict)
